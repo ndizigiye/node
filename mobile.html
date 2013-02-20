@@ -1,0 +1,18 @@
+<script src="/socket.io/socket.io.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.6.4/jquery.min.js"></script>
+<script>
+    var socket = io.connect('http://192.168.15.106:8080/'); <!-- http://armand.herokuapp.com/-->
+
+    function callAjax(){
+      socket.emit('click',' heeft op de knop gedrukt :)');
+    }
+</script>
+<div id = "buttons">
+<img src="http://192.168.15.106:8080/images?image=one" onclick="callAjax()"/>
+<img src="http://192.168.15.106:8080/images?image=two" onclick="callAjax()"/>
+<img src="http://192.168.15.106:8080/images?image=three" onclick="callAjax()"/>
+<img src="http://192.168.15.106:8080/images?image=four" onclick="callAjax()"/>
+<img src="http://192.168.15.106:8080/images?image=five" onclick="callAjax()"/>
+<img src="http://192.168.15.106:8080/images?image=six" onclick="callAjax()"/>
+<img src="http://192.168.15.106:8080/images?image=back_button" onclick="callAjax()"/>
+</div>

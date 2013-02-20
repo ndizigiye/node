@@ -1,0 +1,54 @@
+<script src="/socket.io/socket.io.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.6.4/jquery.min.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.6.4/jquery.min.js"></script>
+<script src="http://192.168.15.106:8080/prettyphoto_js"></script>
+
+<link rel="stylesheet" type="text/css" href="http://192.168.15.106:8080/prettyphoto_css">
+
+<script>
+var socket = io.connect('http://192.168.15.106:8080/'); <!-- http://armand.herokuapp.com/-->
+
+	socket.on('uchat', function(message){
+		$('#tekst').append('<p>'+message+'</p>');
+	});
+	
+	socket.on('clicked', function(message){
+		$.prettyPhoto.open('http://youtu.be/6J4j7RhmosE','test', 'test');
+	});
+
+	// on load of page
+	//$(function(){
+		
+		// when the client clicks SEND
+		//$('#datasend').click( function() {
+			//var message = $('#data').val();
+			//$('#data').val('');
+			// tell server to execute 'sendchat' and send along one parameter
+			//socket.emit('sendchat', message);
+		//});
+	//});
+
+</script>
+
+<script type="text/javascript" charset="utf-8">
+  $(document).ready(function(){
+    $("a[rel^='prettyPhoto']").prettyPhoto();
+  });
+  
+  function activate(){
+	  $.prettyPhoto.open('http://youtu.be/6J4j7RhmosE','test', 'test');
+  }
+</script>
+
+<table  style="width: 100%; height: 100%; border:1px solid">
+  <tr>
+    <td style="border:1px solid;"><img style="position: absolute; opacity:0.7;" onclick="activate()"src="http://192.168.15.106:8080/images?image=one"/><iframe width="100%" height="100%" src="http://www.youtube.com/embed/ZYwqKKc1VCQ" frameborder="0" allowfullscreen></iframe></td>
+    <td style="border:1px solid;"><img style="position: absolute; opacity:0.7;" src="http://192.168.15.106:8080/images?image=two"/><iframe width="100%" height="100%" src="http://www.youtube.com/embed/ZYwqKKc1VCQ" frameborder="0" allowfullscreen></iframe></td>
+    <td style="border:1px solid;"><img style="position: absolute; opacity:0.7;" src="http://192.168.15.106:8080/images?image=three"/><iframe width="100%" height="100%" src="http://www.youtube.com/embed/ZYwqKKc1VCQ" frameborder="0" allowfullscreen></iframe></td>
+  </tr>
+  <tr>
+    <td style="border:1px solid;"><img style="position: absolute; opacity:0.7;" src="http://192.168.15.106:8080/images?image=four"/><iframe width="100%" height="100%" src="http://www.youtube.com/embed/ZYwqKKc1VCQ" frameborder="0" allowfullscreen></iframe></td>
+    <td style="border:1px solid;"><img style="position: absolute; opacity:0.7;" src="http://192.168.15.106:8080/images?image=five"/><iframe width="100%" height="100%" src="http://www.youtube.com/embed/ZYwqKKc1VCQ" frameborder="0" allowfullscreen></iframe></td>
+    <td style="border:1px solid;"><img style="position: absolute; opacity:0.7;" src="http://192.168.15.106:8080/images?image=six"/><iframe width="100%" height="100%" src="http://www.youtube.com/embed/ZYwqKKc1VCQ" frameborder="0" allowfullscreen></iframe></td>
+  </tr>
+</table>
