@@ -1,54 +1,39 @@
 <script src="/socket.io/socket.io.js"></script>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.6.4/jquery.min.js"></script>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.6.4/jquery.min.js"></script>
-<script src="http://192.168.15.106:8080/prettyphoto_js"></script>
+<script src="http://192.168.15.102:8080/prettyphoto_js"></script>
 
-<link rel="stylesheet" type="text/css" href="http://192.168.15.106:8080/prettyphoto_css">
+<link rel="stylesheet" type="text/css" href="http://192.168.15.102:8080/prettyphoto_css">
 
 <script>
-var socket = io.connect('http://192.168.15.106:8080/'); <!-- http://armand.herokuapp.com/-->
+var socket = io.connect('http://192.168.15.102:8080/'); <!-- http://armand.herokuapp.com/-->
 
-	socket.on('uchat', function(message){
-		$('#tekst').append('<p>'+message+'</p>');
+	socket.on('query', function(query){
+		if(query == 'overons') $.prettyPhoto.open('http://youtu.be/JxiP9L4cRSk','test','test');
+		else if (query == 'partners') $.prettyPhoto.open('#inline','test','test');
+		else if (query == 'video') $.prettyPhoto.open('http://youtu.be/4YnTfgmpMN8','test','test');
+		else $.prettyPhoto.close();
 	});
-	
-	socket.on('clicked', function(message){
-		$.prettyPhoto.open('http://youtu.be/6J4j7RhmosE','test', 'test');
-	});
-
-	// on load of page
-	//$(function(){
-		
-		// when the client clicks SEND
-		//$('#datasend').click( function() {
-			//var message = $('#data').val();
-			//$('#data').val('');
-			// tell server to execute 'sendchat' and send along one parameter
-			//socket.emit('sendchat', message);
-		//});
-	//});
 
 </script>
 
 <script type="text/javascript" charset="utf-8">
   $(document).ready(function(){
-    $("a[rel^='prettyPhoto']").prettyPhoto();
+    $("a[rel^='prettyPhoto']").prettyPhoto({
+    		default_width: 1000,
+			default_height: 900,	
+    });
   });
-  
-  function activate(){
-	  $.prettyPhoto.open('http://youtu.be/6J4j7RhmosE','test', 'test');
-  }
 </script>
 
-<table  style="width: 100%; height: 100%; border:1px solid">
-  <tr>
-    <td style="border:1px solid;"><img style="position: absolute; opacity:0.7;" onclick="activate()"src="http://192.168.15.106:8080/images?image=one"/><iframe width="100%" height="100%" src="http://www.youtube.com/embed/ZYwqKKc1VCQ" frameborder="0" allowfullscreen></iframe></td>
-    <td style="border:1px solid;"><img style="position: absolute; opacity:0.7;" src="http://192.168.15.106:8080/images?image=two"/><iframe width="100%" height="100%" src="http://www.youtube.com/embed/ZYwqKKc1VCQ" frameborder="0" allowfullscreen></iframe></td>
-    <td style="border:1px solid;"><img style="position: absolute; opacity:0.7;" src="http://192.168.15.106:8080/images?image=three"/><iframe width="100%" height="100%" src="http://www.youtube.com/embed/ZYwqKKc1VCQ" frameborder="0" allowfullscreen></iframe></td>
-  </tr>
-  <tr>
-    <td style="border:1px solid;"><img style="position: absolute; opacity:0.7;" src="http://192.168.15.106:8080/images?image=four"/><iframe width="100%" height="100%" src="http://www.youtube.com/embed/ZYwqKKc1VCQ" frameborder="0" allowfullscreen></iframe></td>
-    <td style="border:1px solid;"><img style="position: absolute; opacity:0.7;" src="http://192.168.15.106:8080/images?image=five"/><iframe width="100%" height="100%" src="http://www.youtube.com/embed/ZYwqKKc1VCQ" frameborder="0" allowfullscreen></iframe></td>
-    <td style="border:1px solid;"><img style="position: absolute; opacity:0.7;" src="http://192.168.15.106:8080/images?image=six"/><iframe width="100%" height="100%" src="http://www.youtube.com/embed/ZYwqKKc1VCQ" frameborder="0" allowfullscreen></iframe></td>
-  </tr>
-</table>
+<div id="inline" style="display:none">
+<p>
+Lorem ipsum dolor sit amet, 
+consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. 
+Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. 
+Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. 
+Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+</p>
+</div>
+
+<img src="http://qrfree.kaywa.com/?l=1&s=8&d=http%3A%2F%2Fhttp%3A%2F%2F192.168.15.102%3A8080%2F" alt="QRCode"/>

@@ -35,12 +35,9 @@ app.get('/monitor', function(req, res) {
 
 io.sockets.on('connection', function(socket) {
 
-    // console.log(message+ " Client " + socket.id);
-	socket.broadcast.emit('uchat', socket.id + ' is connected');
-
-	socket.on('click', function(message) {
-		var string = socket.id+message;
-		socket.broadcast.emit('clicked', string);
+	socket.on('sendQ', function(query) {
+		socket.broadcast.emit('query', query);
+		console.log(query);
     });
 
     // when the user disconnects.. perform this
@@ -48,43 +45,3 @@ io.sockets.on('connection', function(socket) {
         console.log("Connection " + socket.id + " terminated.");
     });
 });
-
-/*var mysql      = require('mysql');
-var connection = mysql.createConnection({
-host     : 'localhost',
-user     : 'root',
-password : 'armand11',
-database : 'node',
-});
-connection.connect(function(err) {
-	if (null == err){
-		console.log('----------------connected----------------');
-	}
-	else{
-		console.log('----------------'+err+'----------------');
-	}
-});
-
-//insert a table
-connection.query(
-		'CREATE TABLE node'+
-		'(id INT(11) AUTO_INCREMENT, '+
-		'title VARCHAR(255), '+
-		'text TEXT, '+
-		'created DATETIME, '+
-		'PRIMARY KEY (id));', function(err, results) {
-			if (err && err.number != connection.ERROR_TABLE_EXISTS_ERROR) {
-				console.log("------------------ERROR: " + err.message);
-				throw err;
-			}});
----------------------------------------	
-			var query = "INSERT INTO node (title, text) VALUES ("+socket.id+","+socket.id+")";
-		connection.query(query,function(err,results){
-			if (null == err){
-				console.log('----------------'+results+'----------------');
-			}
-			else{
-				console.log('----------------'+err+'----------------');
-			}
-		});
-*/
