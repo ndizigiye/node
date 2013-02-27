@@ -1,12 +1,12 @@
 <script src="/socket.io/socket.io.js"></script>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.6.4/jquery.min.js"></script>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.6.4/jquery.min.js"></script>
-<script src="http://192.168.15.102:8080/prettyphoto_js"></script>
+<script src="http://192.168.15.100:8080/prettyphoto_js"></script>
 
-<link rel="stylesheet" type="text/css" href="http://192.168.15.102:8080/prettyphoto_css">
+<link rel="stylesheet" type="text/css" href="http://192.168.15.100:8080/prettyphoto_css">
 
 <script>
-var socket = io.connect('http://192.168.15.102:8080/'); <!-- http://armand.herokuapp.com/-->
+var socket = io.connect('http://192.168.15.100:8080/'); <!-- http://armand.herokuapp.com/-->
 
 	socket.on('query', function(query){
 		if(query == 'overons') $.prettyPhoto.open('http://youtu.be/JxiP9L4cRSk','test','test');
@@ -36,4 +36,4 @@ Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deseru
 </p>
 </div>
 
-<img src="http://qrfree.kaywa.com/?l=1&s=8&d=http%3A%2F%2Fhttp%3A%2F%2F192.168.15.102%3A8080%2F" alt="QRCode"/>
+<img src="http://qrfree.kaywa.com/?l=1&s=8&d=http%3A%2F%2Fhttp%3A%2F%2F192.168.15.100%3A8080%2F" alt="QRCode"/>

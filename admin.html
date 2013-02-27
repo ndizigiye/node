@@ -1,0 +1,114 @@
+<!doctype html>
+
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<script src="http://code.jquery.com/jquery-1.9.1.js"></script>
+<script src="http://code.jquery.com/ui/1.10.1/jquery-ui.js"></script>
+<style>
+#screen {
+	width: 320px;
+	height: 480px;
+	border-style: solid;
+	border-width: 1px;
+}
+
+.draggable {
+	width: 265px;
+	height: 32px;
+}
+</style>
+
+<script>
+	var gameId = 1;
+
+	//show the form
+	function show() {
+		$(".form").show("slow");
+	}
+
+	//saveAction
+	function saveAction(actionId) {
+		var id = actionId;
+
+		var screenLeft = $('#screen').position().left;
+		var screenTop = $('#screen').position().top;
+		var screenWidth = $('#screen').width();
+		var screenHeight = $('#screen').height();
+
+		var overOnsLeft = $('#overons').position().left;
+		var overOnsTop = $('#overons').position().top;
+		var overOnsWidth = $('#overons').width();
+		var overOnsHeight = $('#overons').height();
+
+		var partnersLeft = $('#partners').position().left;
+		var partnersTop = $('#partners').position().top;
+		var partnersWidth = $('#partners').width();
+		var partnersHeight = $('#partners').height();
+
+		var videoLeft = $('#video').offset().left;
+		var videoTop = $('#video').offset().top;
+		var videoWidth = $('#video').width();
+		var videoHeight = $('#video').height();
+
+		var terugLeft = $('#terug').position().left;
+		var terugTop = $('#terug').position().top;
+		var terugWidth = $('#terug').width();
+		var terugHeight = $('#terug').height();
+
+		
+
+	}
+
+	//make draggable
+	$(function() {
+		$(".draggable").draggable();
+	});
+</script>
+
+</head>
+<body>
+
+	<span class="draggable" class="ui-widget-content"> <img
+		id="overons" src="http://192.168.15.100:8080/images?image=overons"
+		ondblclick="show()" /> <span class="form" style="display: none;">
+			Action: <input type="text" name="fname">
+			<button onclick="saveAction('overons')">Save action</button>
+	</span>
+	</span>
+
+	<span class="draggable" class="ui-widget-content"> <span
+		id="partners"><img
+			src="http://192.168.15.100:8080/images?image=partners"
+			ondblclick="show()" /></span> <span class="form" style="display: none;">
+			Action: <input type="text" name="fname">
+			<button onclick="saveAction('partners')">Save action</button>
+	</span>
+
+	</span>
+
+	<span class="draggable" class="ui-widget-content"> <img
+		id="video" src="http://192.168.15.100:8080/images?image=video"
+		ondblclick="show()" /> <span class="form" style="display: none;">
+			Action: <input type="text" name="fname">
+			<button onclick="saveAction('video')">Save action</button>
+	</span>
+	</span>
+
+	<span class="draggable" class="ui-widget-content"> <img
+		id="terug" src="http://192.168.15.100:8080/images?image=terug"
+		ondblclick="show()" /> <span class="form" style="display: none;">
+			Action: <input type="text" name="fname">
+			<button onclick="saveAction('terug')">Save action</button>
+	</span>
+	</span>
+
+	<div id="button">
+		<button onclick="save()">Save layout</button>
+	</div>
+	<div id="screen"></div>
+
+
+
+</body>
+</html>

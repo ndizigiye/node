@@ -32,6 +32,10 @@ app.get('/monitor', function(req, res) {
     res.sendfile(__dirname + '/monitor.html');
 });
 
+app.get('/admin', function(req, res) {
+    res.sendfile(__dirname + '/admin.html');
+});
+
 
 io.sockets.on('connection', function(socket) {
 
